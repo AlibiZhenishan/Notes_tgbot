@@ -1,25 +1,22 @@
-# Virtual environment
+# Виртуальное окружение
 .venv/
 venv/
 env/
 
-# Environment variables
-.env
-*.env
-
-# Python cache
+# Кэш Python
 __pycache__/
 *.py[cod]
 
-# IDE files
+# Файл с токенами / конфигурацией
+.env
+
+# IDE-файлы
 .idea/
 .vscode/
 
-# Logs and databases
+# Логи, если будут
 *.log
-*.db
-*.sqlite3
 
-# System files
+# Системные файлы
 .DS_Store
 Thumbs.db

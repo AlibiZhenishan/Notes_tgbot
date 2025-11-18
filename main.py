@@ -1,5 +1,5 @@
 from loader import bot
-from handlers.custom_handlers import yes_or_no,add,delete,list
+from handlers.custom_handlers import nots, yes_or_no,add,delete,list
 from telebot.custom_filters import StateFilter
 from utils.set_bot_commands import set_default_commands
 

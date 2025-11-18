@@ -1,12 +1,14 @@
-from loader import bot
 from telebot.types import Message
+
 from database.db import list_notes
-from keyboards.inline import delete_note_kb, yes_no
+from keyboards.inline import nots, yes_no
+from loader import bot
 
 
 @bot.message_handler(commands=["list"])
 def show_notes(message: Message):
     notes = list_notes(message.from_user.id)
+    listt = "Ваши заметки: \n\n"
 
     if not notes:
         bot.send_message(
@@ -16,8 +18,10 @@ def show_notes(message: Message):
         return
 
     for index, (note_id, query, created_at) in enumerate(notes, start=1):
-        bot.send_message(
-            message.chat.id,
-            f"{index}) {query}",
-            reply_markup=delete_note_kb(note_id)
-        )
+        listt += f"{index}) {query}\n"
+
+    bot.send_message(message.chat.id, listt)
+
+    bot.send_message(message.chat.id,
+                     "Вы хотите изменить заметки?",
+                     reply_markup=nots())

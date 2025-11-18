@@ -12,3 +12,12 @@ def yes_no():
         InlineKeyboardButton("Нет",callback_data="no")
     )
     return markup
+
+def nots():
+    markup = InlineKeyboardMarkup()
+    markup.row(
+        InlineKeyboardButton("Добавить",callback_data="plus"),
+        InlineKeyboardButton("Удалить",callback_data="minus"),
+        InlineKeyboardButton("Назад",callback_data="back")
+    )
+    return markup
