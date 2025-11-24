@@ -8,7 +8,7 @@ from loader import bot
 @bot.message_handler(commands=["list"])
 def show_notes(message: Message):
     notes = list_notes(message.from_user.id)
-    listt = "Ваши заметки: \n\n"
+    listt = "Ваши задачи: \n\n"
 
     if not notes:
         bot.send_message(
@@ -23,5 +23,5 @@ def show_notes(message: Message):
     bot.send_message(message.chat.id, listt)
 
     bot.send_message(message.chat.id,
-                     "Вы хотите изменить заметки?",
+                     "Вы хотите изменить задачи?",
                      reply_markup=nots())
